@@ -1,0 +1,9 @@
+<div class="row">
+        <div class="col-md-5">
+            <app-recipe-item *ngFor="let recipe of recipes" [recipes]="recipe" ></app-recipe-item>
+        </div>
+        <div class="col-md-7">
+           <router-outlet></router-outlet>
+        </div>
+    </div>
+    

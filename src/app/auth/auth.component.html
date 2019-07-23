@@ -1,0 +1,20 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="lds-circle" *ngIf="isLoading"><div></div></div>
+            <p class="alert alert-danger" *ngIf="error!==null">{{ error }}</p>
+            <form #f= "ngForm" (ngSubmit)= "onSubmit(f)" *ngIf="!isLoading">
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" class="form-control" name="email" ngModel required email>
+                    <label for="password">Password</label>
+                    <input type="password" class="form-control" required name="password" ngModel minlength="6">
+    
+                    <button class="btn btn-success mt-3" type="submit" [disabled] = "!f.valid">{{ isLogin === true ? 'Login' : 'Signup' }}</button>
+                    
+                    <button type="button" class="btn btn-primary ml-3 mt-3" (click) = "doSwitch()">Switch to {{ isLogin !== true ? 'Login' : 'Signup' }}</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
