@@ -86,16 +86,21 @@ export class EditRecipeComponent implements OnInit {
     }
     this.router.navigate(['/recipes']);
   }
+  get recipeIngredients() {
+    const controlName = new FormControl(null, [Validators.required]);
+    const controlAmount = new FormControl(null, [Validators.required, Validators.pattern(/^[1-9]+[0-9]*$/)]);
+    return this.newRecipe.get('recipeIngredients') as FormArray;
+  }
   onAddIngredient() {
     const controlName = new FormControl(null, [Validators.required]);
     const controlAmount = new FormControl(null, [Validators.required, Validators.pattern(/^[1-9]+[0-9]*$/)]);
     // (<FormArray>this.newRecipe.get('recipeIngredients')).push(control);
-    ( this.newRecipe.get('recipeIngredients') as FormArray).push(
+    ( this.recipeIngredients.push(
       new FormGroup({
         item: controlName,
         amount: controlAmount
       })
-    );
+    ));
   }
   onDeleteIngredient(i: number) {
     ( this.newRecipe.get('recipeIngredients') as FormArray).removeAt(i);

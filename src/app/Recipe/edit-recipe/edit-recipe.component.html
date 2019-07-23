@@ -19,7 +19,7 @@
                 </div>
                 <div formArrayName="recipeIngredients">
                     <button class="btn btn-warning mb-3" type="button" (click)="onAddIngredient()" [disabled]="newRecipe.get('recipeIngredients').status==='INVALID'">Ingredient</button>
-                    <div class="form-group row" *ngFor="let ingredient of newRecipe.get('recipeIngredients').controls;let i=index" [formGroupName]='i' >
+                    <div class="form-group row" *ngFor="let ingredient of recipeIngredients.controls;let i=index" [formGroupName]='i' >
                       <div class="col-md-7">
                         <input type="text"  class="form-control" formControlName="item">
                       </div>  

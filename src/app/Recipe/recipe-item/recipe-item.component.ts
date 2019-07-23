@@ -7,11 +7,8 @@ import { RecipeService } from 'src/app/services/recipe.service';
   styleUrls: ['./recipe-item.component.css']
 })
 export class RecipeItemComponent implements OnInit {
-  constructor(private recipeService:RecipeService) { }
-  @Input() recipes: Recipe[];
-  
-  
-
+  constructor(private recipeService: RecipeService) { }
+ @Input() recipes: Recipe;
   ngOnInit() {
   }
 
